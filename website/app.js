@@ -1,34 +1,61 @@
-let number;
-let txt;
-number = prompt("Please enter a number between 2 and 10: ");
-if(number >=2 && number <= 10)
+const messages = [
+    'message 01',
+    'message 02',
+    'message 03',
+    'message 04',
+    'message 05',
+];
+
+let number = prompt("Choose an option\n 1:Show message\n 2:Add a message\n 3:Delete a message\n 0:Quit", "");
+
+if(number==0)
 {
-	txt = "Your input number is "+number;
-	document.getElementById("show1_1").innerHTML = txt;
-	let temp = number;
-	let count=0;
-	while(temp >= 0.000001)
+	document.getElementById("display").innerHTML = "Good Bye";
+}else if(number==1)
+{
+let str = "The current message are:";
+	for(let i=0;i< messages.length;i++)
 	{
-		temp = temp/2;
-		count = count+1;
+		str = str+"<br>"+(i+1)+": ";
+		str =  str+messages[i];
 	}
-	document.getElementById("show2").innerHTML = "The number of times to divide the number "+number+" by 2 to get a value less than one millionth is "+ count;
-	let txt_star="";
+	document.getElementById("display").innerHTML = str;
+}else if(number==2)
+{
+	let new_msg = prompt("Enter a new message","");
+	<!-- add new element -->
+	messages.push(new_msg);   
 	
-	for(let i=number;i>0;i--)
+	let str = "The current message are:";
+	for(let i=0;i< messages.length;i++)
 	{
-		for(let j=i;j>0;j--)
+		str = str+"<br>"+(i+1)+": ";
+		str =  str+messages[i];
+	}
+	document.getElementById("display").innerHTML = str;
+}else if(number==3)
+{
+	let index = prompt("Enter the message index (between 1 and "+messages.length+")","");
+<!-- remove element (index,amount)-->
+	index = index-1;
+	if(index >= 0 && index < messages.length)
+	{
+		messages.splice(index, 1);
+	
+		let str = "The current message are:";
+		for(let i=0;i< messages.length;i++)
 		{
-			txt_star = txt_star + "*"; 
+			str = str+"<br>"+(i+1)+": ";
+			str =  str+messages[i];
 		}
-		txt_star = txt_star + "<br>";
+		document.getElementById("display").innerHTML = str;
 	}
-	document.getElementById("show3").innerHTML=txt_star;
-}
-else {
-	txt = "Your input is "+number+". The valid input number is between 2 and 10. Please reload this page and try again.";
-	document.getElementById("show3").style.display = "none";
-	document.getElementById("show1_2").innerHTML = txt;
-	
+	else
+	{
+		document.getElementById("display").innerHTML = "Please refresh and select a correct command";
+	}
+}else
+{
+	document.getElementById("display").innerHTML = "Please refresh and select a correct command";
 }
 
