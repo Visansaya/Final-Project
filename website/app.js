@@ -6,7 +6,7 @@ const messages = [
     'message 05',
 ];
 
-let number = prompt("This page says:\n \n 1:Show messages\n 2:Add a message\n 3:Delete a message\n 0:Quit", "");
+let number = prompt("This page says:\n \n 1: Show messages\n 2: Add a message\n 3: Delete a message\n 0: Quit", "");
 
 if(number==0)
 {
