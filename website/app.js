@@ -6,14 +6,14 @@ const messages = [
     'message 05',
 ];
 
-let number = prompt("Choose an option\n 1:Show message\n 2:Add a message\n 3:Delete a message\n 0:Quit", "");
+let number = prompt("This page says:\n \n 1:Show messages\n 2:Add a message\n 3:Delete a message\n 0:Quit", "");
 
 if(number==0)
 {
 	document.getElementById("display").innerHTML = "Good Bye";
 }else if(number==1)
 {
-let str = "The current message are:";
+let str = "The current messages are:";
 	for(let i=0;i< messages.length;i++)
 	{
 		str = str+"<br>"+(i+1)+": ";
@@ -26,7 +26,7 @@ let str = "The current message are:";
 	<!-- add new element -->
 	messages.push(new_msg);   
 	
-	let str = "The current message are:";
+	let str = "The current messages are:";
 	for(let i=0;i< messages.length;i++)
 	{
 		str = str+"<br>"+(i+1)+": ";
