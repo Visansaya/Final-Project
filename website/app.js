@@ -42,7 +42,7 @@ let str = "The current messages are:";
 	{
 		messages.splice(index, 1);
 	
-		let str = "The current message are:";
+		let str = "The current messages are:";
 		for(let i=0;i< messages.length;i++)
 		{
 			str = str+"<br>"+(i+1)+": ";
