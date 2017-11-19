@@ -1,61 +1,64 @@
-const messages = [
-    'message 01',
-    'message 02',
-    'message 03',
-    'message 04',
-    'message 05',
+const myKeyCollection =[
+    new candidate("Peter Parker",700)
+   ,new  candidate("Wade Winston Wilson",403)
+   ,new  candidate("Bruce Wyne",251)
 ];
+$(document).ready(function () {
 
-let number = prompt("This page says:\n \n 1: Show messages\n 2: Add a message\n 3: Delete a message\n 0: Quit", "");
+initial();
 
-if(number==0)
-{
-	document.getElementById("display").innerHTML = "Good Bye";
-}else if(number==1)
-{
-let str = "The current messages are:";
-	for(let i=0;i< messages.length;i++)
-	{
-		str = str+"<br>"+(i+1)+": ";
-		str =  str+messages[i];
-	}
-	document.getElementById("display").innerHTML = str;
-}else if(number==2)
-{
-	let new_msg = prompt("Enter a new message","");
-	<!-- add new element -->
-	messages.push(new_msg);   
-	
-	let str = "The current messages are:";
-	for(let i=0;i< messages.length;i++)
-	{
-		str = str+"<br>"+(i+1)+": ";
-		str =  str+messages[i];
-	}
-	document.getElementById("display").innerHTML = str;
-}else if(number==3)
-{
-	let index = prompt("Enter the message index (between 1 and "+messages.length+")","");
-<!-- remove element (index,amount)-->
-	index = index-1;
-	if(index >= 0 && index < messages.length)
-	{
-		messages.splice(index, 1);
-	
-		let str = "The current messages are:";
-		for(let i=0;i< messages.length;i++)
-		{
-			str = str+"<br>"+(i+1)+": ";
-			str =  str+messages[i];
-		}
-		document.getElementById("display").innerHTML = str;
-	}
-	else
-	{
-		document.getElementById("display").innerHTML = "Please refresh and select a correct command";
-	}
-}else
-{
-	document.getElementById("display").innerHTML = "Please refresh and select a correct command";
+});
+function initial(){
+let size = Object.size(myKeyCollection);
+let text="";
+for(let i=0;i<size;i++){
+   
+   text+='<div class="row">';
+   text+='                <div class="col-sm-6">';
+   text+='                     <p>'+myKeyCollection[i].name+'</p>';
+   text+='                </div>';
+   text+='                <div class="col-sm-2">';
+   text+='                     <p>'+myKeyCollection[i].point+'</p>';
+   text+='                </div>';
+   text+='                <div class="col-sm-2">';
+   text+='                     <button onclick="increaseCandidateLike('+i+')">like</button>';
+   text+='                </div>';
+   text+='                <div class="col-sm-2">';
+   text+='                    <button onclick="deleteCandidate('+i+')">Delete</button>';
+   text+='                </div>';
+   text+='            </div>';
+   
+   console.log(myKeyCollection[i].name);
+  
 }
+$("#myCandidateContent").html(text);
+
+}
+function createNewCandidate(){
+myKeyCollection.push(new candidate($("#candidateNewName").val(),0)); 
+initial(); 
+
+}
+function increaseCandidateLike(id){
+myKeyCollection[id].point+=1;
+initial(); 
+}
+function deleteCandidate(id){
+console.log(id);
+alert("Click the 'Close' button to delete \" "+myKeyCollection[id].name+"\"");
+myKeyCollection.splice(id,1);
+initial();
+}
+
+function candidate(name, point) {
+this.name = name;
+this.point = point;
+}
+Object.size = function(obj) {
+let size = 0, key;
+for (key in obj) {
+   if (obj.hasOwnProperty(key)) size++;
+}
+return size;
+};
 
