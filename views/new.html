@@ -41,7 +41,7 @@
 	<p>
 		<div class="panel panel-primary">
 		  <div class="panel-heading">
-			<h3 class="panel-title">Contact</h3>
+			<h3 class="panel-title">New Contact</h3>
 		  </div>
 		  <form name="i" action="/" method="post" onsubmit="return validate();">
 			<div class="panel-body">
@@ -86,7 +86,7 @@
 	}
 
 	function isEmail(email) {
-		var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+		let regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 		return regex.test(email);
 	}
 </script>
