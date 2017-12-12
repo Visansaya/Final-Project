@@ -1,7 +1,7 @@
 
 /* Load Express*/
-const express = require("express");
-const app = express();
+let express = require("express");
+let app = express();
 let bodyParser = require('body-parser');
 
 let fs = require('fs');
@@ -211,7 +211,7 @@ app.use("*",function(req,res){
   res.sendFile(path + "404.html");
 });
 
-/* For the server to Web Server under specified port */
+/* For the server to run the Web Server under specified port */
 
 app.listen(port, function() {
     console.log('Starting node.js on port ' + port);
