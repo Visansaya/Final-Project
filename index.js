@@ -40,7 +40,6 @@ router.get("/",function(req,res){
 	table += '				<td><strong>Name</strong></div>';
 	table += '				<td><strong>Email</strong></div>';
 	table += '				<td><strong>Phone</strong></div>';
-	table += '				<td><strong>Menu</strong></div>';
 	table += '			<tr>';
 	table += '		</thead>';
 	
