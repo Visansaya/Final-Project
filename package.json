@@ -1,27 +1,19 @@
 {
-  "name": "test08-10-15-46",
-  "version": "1.0.0",
-  "description": "A test project",
-  "engines": {
-    "node": ">=8.2.0"
-  },
-  "main": "server.js",
+  "name": "contact-nodejs",
+  "version": "0.0.1",
+  "description": "Contact management application using Node.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node server",
-    "deploy": "gcloud app deploy",
-    "browser": "gcloud app browse"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/csulbying/Test08-10-15-46.git"
+    "test": "go"
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/csulbying/Test08-10-15-46/issues"
-  },
-  "homepage": "https://github.com/csulbying/Test08-10-15-46#readme",
   "dependencies": {
-    "express": "^4.15.4"
-  }
+    "body-parser": "^1.18.2",
+    "bootstrap": "^3.3.7",
+    "express": "^4.16.2",
+    "jQuery": "^1.7.4",
+    "jsdom": "^11.3.0"
+  },
+  "devDependencies": {}
 }
