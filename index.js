@@ -1,5 +1,5 @@
 
-/* โหลด Express มาใช้งาน */
+/* Load Express*/
 const express = require("express");
 const app = express();
 let bodyParser = require('body-parser');
@@ -9,7 +9,7 @@ let fs = require('fs');
 let router = express.Router();
 let path = __dirname + '/views/';
 
-/* ใช้ port 8888 หรือจะส่งเข้ามาตอนรัน app ก็ได้ */
+/* use port 8888*/
 let port = process.env.PORT || 8888;
 
 app.use(bodyParser.urlencoded({
@@ -211,7 +211,7 @@ app.use("*",function(req,res){
   res.sendFile(path + "404.html");
 });
 
-/* สั่งให้ server ทำการรัน Web Server ด้วย port ที่เรากำหนด */
+/* For the server to Web Server under specified port */
 
 app.listen(port, function() {
     console.log('Starting node.js on port ' + port);
