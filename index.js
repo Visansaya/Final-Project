@@ -1,7 +1,7 @@
 
-/* Load Express*/
-let express = require("express");
-let app = express();
+/* Load Express */
+const express = require("express");
+const app = express();
 let bodyParser = require('body-parser');
 
 let fs = require('fs');
@@ -9,7 +9,7 @@ let fs = require('fs');
 let router = express.Router();
 let path = __dirname + '/views/';
 
-/* use port 8888*/
+/* using port 8888 */
 let port = process.env.PORT || 8888;
 
 app.use(bodyParser.urlencoded({
@@ -40,6 +40,7 @@ router.get("/",function(req,res){
 	table += '				<td><strong>Name</strong></div>';
 	table += '				<td><strong>Email</strong></div>';
 	table += '				<td><strong>Phone</strong></div>';
+	table += '				<td><strong>Menu</strong></div>';
 	table += '			<tr>';
 	table += '		</thead>';
 	
@@ -210,7 +211,7 @@ app.use("*",function(req,res){
   res.sendFile(path + "404.html");
 });
 
-/* For the server to run the Web Server under specified port */
+/* For requesting server to run the web server on a speficied port */
 
 app.listen(port, function() {
     console.log('Starting node.js on port ' + port);
