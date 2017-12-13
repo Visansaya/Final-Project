@@ -15,5 +15,13 @@
     "jQuery": "^1.7.4",
     "jsdom": "^11.3.0"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Visansaya/Final-Project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Visansaya/Final-Project/issues"
+  },
+  "homepage": "https://github.com/Visansaya/Final-Project#readme"
 }
