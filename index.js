@@ -2,7 +2,6 @@
 /* Load Express */
 const express = require("express");
 const app = express();
-const apiRouter = require('./api')
 let bodyParser = require('body-parser');
 
 let fs = require('fs');
