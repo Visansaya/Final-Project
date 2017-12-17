@@ -15,7 +15,7 @@ let port = process.env.PORT || 8888;
 app.use(bodyParser.urlencoded({
     extended: true
 }));
-app.use(bodyParser.json({ type: 'application/json'}));
+app.use(bodyParser.json());
 
  /* Routing */
 
