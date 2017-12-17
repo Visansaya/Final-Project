@@ -2,11 +2,12 @@
 /* Load Express */
 const express = require("express");
 const app = express();
+const apiRouter = require('./api')
 let bodyParser = require('body-parser');
 
 let fs = require('fs');
 
-let router = express.Router();
+let api = express.Router();
 let path = __dirname + '/views/';
 
 /* using port 8888 */
@@ -15,18 +16,18 @@ let port = process.env.PORT || 8888;
 app.use(bodyParser.urlencoded({
     extended: true
 }));
-app.use(bodyParser.json());
+app.use(bodyParser.json({ type: 'application/json'}));
 
  /* Routing */
 
-router.use(function (req,res,next) {
+api.use(function (req,res,next) {
   console.log("/" + req.method);
   next();
 });
 
 
 /* index show all ########################################################*/
-router.get("/",function(req,res){
+api.get("/",function(req,res){
 
 	let html = fs.readFileSync(path+'index.html', 'utf8');
 	let data = fs.readFileSync(path+'data.txt', 'utf8');
@@ -69,7 +70,7 @@ router.get("/",function(req,res){
 
 
 /* new form ######################################################## */
-router.get("/new",function(req,res){
+api.get("/new",function(req,res){
   res.sendFile(path + "new.html");
 });
 
@@ -78,7 +79,7 @@ router.get("/new",function(req,res){
 
 
 /* show detail ######################################################## */
-router.get("/detail/:id",function(req,res){
+api.get("/detail/:id",function(req,res){
 	let id = req.params.id;
 	let html = fs.readFileSync(path+'detail.html', 'utf8');
 	let data = fs.readFileSync(path+'data.txt', 'utf8');
@@ -99,7 +100,7 @@ router.get("/detail/:id",function(req,res){
 
 
 /* edit detail ######################################################## */
-router.get("/edit/:id",function(req,res){
+api.get("/edit/:id",function(req,res){
 	let id = req.params.id;
 	let html = fs.readFileSync(path+'edit.html', 'utf8');
 	let data = fs.readFileSync(path+'data.txt', 'utf8');
@@ -121,7 +122,7 @@ router.get("/edit/:id",function(req,res){
 
 
 /* delete contact ########################################################*/
-router.get("/delete/:id",function(req,res){
+api.get("/delete/:id",function(req,res){
 	let id = req.params.id;
 
 	let data = fs.readFileSync(path+'data.txt', 'utf8');
@@ -154,7 +155,7 @@ router.get("/delete/:id",function(req,res){
 
 
 /* save detail ######################################################## */
-router.post("/", function (req, res) {
+api.post("/", function (req, res) {
 	let id = req.body.id
 	let name = req.body.name
 	let email = req.body.email
@@ -205,7 +206,7 @@ router.post("/", function (req, res) {
 
 
 /* router*/
-app.use("/",router);
+app.use("/",api);
 
 app.use("*",function(req,res){
   res.sendFile(path + "404.html");
@@ -216,4 +217,4 @@ app.use("*",function(req,res){
 app.listen(port, function() {
     console.log('Starting node.js on port ' + port);
 });
-
+module.exports = api
